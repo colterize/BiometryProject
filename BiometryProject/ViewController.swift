@@ -39,6 +39,10 @@ extension ViewController {
                     //TODO: User authenticated successfully, take approriate action
                     DispatchQueue.main.async {
                         self.lblContent.text = "Auth success"
+                        let storyBoard = UIStoryboard(name: "Timer", bundle: nil)
+                        let timerViewController = storyBoard.instantiateViewController(identifier: "TimerViewController") as! TimerViewController
+                        timerViewController.modalPresentationStyle = .fullScreen
+                        self.present(timerViewController, animated: true)
                     }
                 } else {
                     //TODO: User did not authenticate successfully, look at error and take appropriate action
